@@ -30,10 +30,14 @@ between classes with what it is and which way it points.
 ASCII is fine. So is a photo of paper. What matters is that every class, every
 attribute and every relationship is on it.
 
-**Second**, mark each attribute `+` for public or `-` for non-public, and give
-**one sentence per `-`** saying what would go wrong if any code could set it
-directly. A `-` with no reason is not finished — "it feels internal" is not a
-reason.
+**Second**, mark each attribute **and each method** `+` for public or `-` for
+non-public, and give **one sentence per `-`** saying what would go wrong if any
+code could reach it directly. A `-` with no reason is not finished — "it feels
+internal" is not a reason.
+
+**Then look for a helper that needs none of the object's data.** If a thing you
+wrote as a method never touches `self`, it is a function that happens to live in
+a class. Name it, and say where it belongs instead.
 
 **Third**, name the class that owns the three-tools-at-once rule, and say why
 that class and not another.
